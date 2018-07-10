@@ -1,4 +1,5 @@
 let restaurant;
+let tabIndex = 5;
 var newMap;
 
 /**
@@ -22,7 +23,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
       L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-        mapboxToken: '<your MAPBOX API KEY HERE>',
+        mapboxToken: 'pk.eyJ1IjoibGJ5ZmllbGQiLCJhIjoiY2pqMHhqcHpiMDRrejNwdGI5NzYwdmMyeSJ9.S-y_Xn69ubt-IVb84tFsnw',
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -89,6 +90,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('alt', `Image of ${restaurant.name} restaurant`);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -147,23 +149,43 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
+  const reviewHeadBackground = document.createElement('div');
+  reviewHeadBackground.setAttribute("id", "review-head-background");
+  
+  const reviewHead = document.createElement('div');
+  reviewHead.setAttribute("id", "review-head");
+    
+  const reviewBody = document.createElement('div');
+  reviewBody.setAttribute("id", "review-body");
+  
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  li.appendChild(name);
+  name.setAttribute("id", "name");
+  reviewHead.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  li.appendChild(date);
-
+  date.setAttribute("id", "date");
+  reviewHead.appendChild(date);
+    
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  rating.setAttribute("id", "rating");
+  reviewBody.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
-  li.appendChild(comments);
+  comments.setAttribute("id", "comments");
+  reviewBody.appendChild(comments);
 
+  reviewHeadBackground.appendChild(reviewHead);
+  li.appendChild(reviewHeadBackground);
+  li.appendChild(reviewBody);
+  li.setAttribute('aria-label', `Review`);
+  li.setAttribute('tabindex', `${tabIndex}`);
+  tabIndex++;
+  
   return li;
 }
 
