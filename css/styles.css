@@ -116,9 +116,7 @@ nav h1 a {
 }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
-  /*width: 100%;*/
   height: 50px;
-  /*background-color: #3397DB;*/
   position: fixed;
   background: #ff9400;
   top: 80px;
@@ -133,7 +131,7 @@ nav h1 a {
   margin: 0 20px;
 }
 .filter-options select {
-  /*border: 1px solid #fff;*/
+	outline: none;
   border: none;
   color: white;
   background-color: #ff6a00;
@@ -154,13 +152,9 @@ nav h1 a {
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
-  /*margin: 0;
-  margin-top: 90px;*/
   margin-top: 140px;
   margin-left: auto;
   margin-right: auto;
-  
-  /*padding: 30px 15px 60px;*/
   padding-left: 0px;
   text-align: center;
 }
@@ -213,7 +207,6 @@ body#index.inside ul#restaurants-list li {
   font-size: 10pt;
   margin: 10px 0 15px;
   border: none;
-  /*padding: 8px 30px 10px;*/
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -312,10 +305,10 @@ body.inside#index #footer {
   width: 50%;
 }
 #restaurant-card {
-  
+  width: 90%;
 }
 body.inside #reviews-container {
-  width: 100%
+  width: 100%;
 }
 #reviews-container {
   padding: 30px 115px 80px 40px;
@@ -339,10 +332,8 @@ body.inside #reviews-container {
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  /*padding: 0 20px 20px;*/
   padding: 0;
   position: relative;
-  /*width: 85%;*/
 }
 #reviews-list li p {
   margin: 0 0 10px;
