@@ -9,19 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
 		/*const port = 80 // Change this to your server port
-		let test = new XMLHttpRequest();
-		test.open('GET', `https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/data/restaurants.json`);
-		test.send();*/
-		/*
-		test.onload = () => {
-			if(test.status === 200) {
-				//for local server
-    		return `http://localhost:${port}/data/restaurants.json`;
-			} else {
-				//for git project site
-				return `https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/data/restaurants.json`;
-			}
-		}*/
+		return `http://localhost:${port}/data/restaurants.json`;*/
 		return `https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/data/restaurants.json`;
   }
 
@@ -164,7 +152,9 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    //return (`/img/${restaurant.photograph}`);
+		return (`https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/img/${restaurant.photograph}`);
+		
   }
 
   /**
