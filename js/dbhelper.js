@@ -8,10 +8,11 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-		const port = 80 // Change this to your server port
+		/*const port = 80 // Change this to your server port
 		let test = new XMLHttpRequest();
-		test.open('GET', `http://localhost:${port}/data/restaurants.json`);
-		test.send();
+		test.open('GET', `https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/data/restaurants.json`);
+		test.send();*/
+		/*
 		test.onload = () => {
 			if(test.status === 200) {
 				//for local server
@@ -20,7 +21,8 @@ class DBHelper {
 				//for git project site
 				return `https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/data/restaurants.json`;
 			}
-		}
+		}*/
+		return `https://leighton-b.github.io/Mobile-Web-Restaurant-Site-1/data/restaurants.json`;
   }
 
   /**
@@ -28,6 +30,7 @@ class DBHelper {
    */
   static fetchRestaurants(callback) {
     let xhr = new XMLHttpRequest();
+		console.log();
     xhr.open('GET', DBHelper.DATABASE_URL);
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
